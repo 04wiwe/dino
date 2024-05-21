@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Ground
   - CactusSpawner
+  - SmallCactus
+  - BigCactus
   layers:
   - Default
   - TransparentFX

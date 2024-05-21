@@ -5,7 +5,7 @@ public class Player : MonoBehaviour
     public  float gravity = 60.0f;
     private bool isGrounded = true;
     private Vector3 velocity = Vector3.zero;
-    void Update()
+    private void Update()
     {
         if (isGrounded && Input.GetKeyDown(KeyCode.Space))
         {

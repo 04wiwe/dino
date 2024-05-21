@@ -8,11 +8,11 @@ public class CactusSpawner : MonoBehaviour
     public float cactusSpeed = 6.0f;
     public float spawnHeight = -4f;
     private float nextSpawnTime;
-    void Start()
+    private void Start()
     {
         ScheduleNextSpawn();
     }
-    void Update()
+    private void Update()
     {
         if (Time.time >= nextSpawnTime)
         {
@@ -20,7 +20,7 @@ public class CactusSpawner : MonoBehaviour
             ScheduleNextSpawn();
         }
     }
-    void SpawnCactus()
+    private void SpawnCactus()
     {
         GameObject cactusPrefab;
         if(Random.value > 0.5f)
@@ -36,7 +36,7 @@ public class CactusSpawner : MonoBehaviour
         CactusMovement cactusMovement = cactus.AddComponent<CactusMovement>();
         cactusMovement.speed = cactusSpeed;
     }
-    void ScheduleNextSpawn()
+    private void ScheduleNextSpawn()
     {
         nextSpawnTime = Time.time + Random.Range(spawnIntervalMin, spawnIntervalMax);
     }
@@ -44,7 +44,7 @@ public class CactusSpawner : MonoBehaviour
 public class CactusMovement : MonoBehaviour
 {
     public float speed;
-    void Update()
+    private void Update()
     {
         transform.Translate(Vector3.left * speed * Time.deltaTime);
         if (transform.position.x < -10.0f)
