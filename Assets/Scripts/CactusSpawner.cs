@@ -6,7 +6,7 @@ public class CactusSpawner : MonoBehaviour
     public float spawnIntervalMin = 0.5f;
     public float spawnIntervalMax = 3.0f;
     public float cactusSpeed = 6.0f;
-    public float spawnHeight = -4f;
+    public float spawnHeight = -4.0f;
     private float nextSpawnTime;
     private void Start()
     {

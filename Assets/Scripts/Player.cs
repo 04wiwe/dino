@@ -14,11 +14,11 @@ public class Player : MonoBehaviour
         }
         velocity.y -= gravity * Time.deltaTime;
         transform.Translate(velocity * Time.deltaTime);
-        if (transform.position.y <= -3f)
+        if (transform.position.y <= -3.0f)
         {
             isGrounded = true;
             velocity.y = 0;
-            transform.position = new Vector3(transform.position.x, -3f);
+            transform.position = new Vector3(transform.position.x, -3.0f);
         }
     }
 }
