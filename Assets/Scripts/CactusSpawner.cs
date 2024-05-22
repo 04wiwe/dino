@@ -14,6 +14,11 @@ public class CactusSpawner : MonoBehaviour
     }
     private void Update()
     {
+        CollisionChecker collisionChecker = FindObjectOfType<CollisionChecker>();
+        if(collisionChecker.gameOver)
+        {
+            return;
+        }
         if (Time.time >= nextSpawnTime)
         {
             SpawnCactus();
@@ -46,6 +51,11 @@ public class CactusMovement : MonoBehaviour
     public float speed;
     private void Update()
     {
+        CollisionChecker collisionChecker = FindObjectOfType<CollisionChecker>();
+        if(collisionChecker.gameOver)
+        {
+            return;
+        }
         transform.Translate(Vector3.left * speed * Time.deltaTime);
         if (transform.position.x < -10.0f)
         {

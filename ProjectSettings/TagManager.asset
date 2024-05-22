@@ -8,6 +8,7 @@ TagManager:
   - CactusSpawner
   - SmallCactus
   - BigCactus
+  - Points
   layers:
   - Default
   - TransparentFX
