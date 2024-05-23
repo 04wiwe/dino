@@ -5,8 +5,17 @@ public class Player : MonoBehaviour
     public  float gravity = 60.0f;
     private bool isGrounded = true;
     private Vector3 velocity = Vector3.zero;
+    private GameManager gameManager;
+    private void Start()
+    {
+        gameManager = FindObjectOfType<GameManager>();
+    }
     private void Update()
     {
+        if(gameManager.gameOver)
+        {
+            return;
+        }
         if (isGrounded && Input.GetKeyDown(KeyCode.Space))
         {
             velocity.y = jumpForce;

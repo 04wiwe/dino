@@ -1,5 +1,4 @@
 using UnityEngine;
-
 public class CactusSpawner : MonoBehaviour
 {
     public GameObject bigCactusPrefab;
@@ -9,9 +8,18 @@ public class CactusSpawner : MonoBehaviour
     public float cactusSpeed = 6.0f;
     public float spawnHeight = -4.0f;
     private float nextSpawnTime;
+    private GameManager gameManager;
+    private void Start()
+    {
+        gameManager = FindObjectOfType<GameManager>();
+    }
     private void Update()
     {
-        if (Time.time >= nextSpawnTime)
+        if(gameManager.gameOver)
+        {
+            return;
+        }
+        else if (Time.time >= nextSpawnTime)
         {
             SpawnCactus();
             ScheduleNextSpawn();
@@ -29,12 +37,34 @@ public class CactusSpawner : MonoBehaviour
     {
         nextSpawnTime = Time.time + Random.Range(spawnIntervalMin, spawnIntervalMax);
     }
+    public void DestroyAllCactuses()
+    {
+        GameObject[] bigCactus = GameObject.FindGameObjectsWithTag("BigCactus");
+        foreach (GameObject cactus in bigCactus)
+        {
+            Destroy(cactus);
+        }
+        GameObject[] smallCactus = GameObject.FindGameObjectsWithTag("SmallCactus");
+        foreach (GameObject cactus in smallCactus)
+        {
+            Destroy(cactus);
+        }
+    }
 }
 public class CactusMovement : MonoBehaviour
 {
+    private GameManager gameManager;
     public float speed;
+    private void Start()
+    {
+        gameManager = FindObjectOfType<GameManager>();
+    }
     private void Update()
     {
+        if(gameManager.gameOver)
+        {
+            return;
+        }
         transform.Translate(Vector3.left * speed * Time.deltaTime);
         if (transform.position.x < -10.0f)
         {
