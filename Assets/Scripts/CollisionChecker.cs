@@ -2,7 +2,6 @@ using UnityEngine;
 public class CollisionChecker : MonoBehaviour
 {
     private Collider2D _collider;
-    public bool gameOver = false;
     private void Start()
     {
         _collider = GetComponent<Collider2D>();
@@ -10,10 +9,6 @@ public class CollisionChecker : MonoBehaviour
     private void Update()
     {
         CheckCollisions();
-        if(gameOver == true)
-        {
-            return;
-        }
     }
     private void CheckCollisions()
     {
@@ -23,7 +18,6 @@ public class CollisionChecker : MonoBehaviour
             if (allColliders[i] != _collider && _collider.bounds.Intersects(allColliders[i].bounds))
             {
                 Debug.Log("Collision with " + allColliders[i].gameObject.name);
-                gameOver = true;
             }
         }
     }

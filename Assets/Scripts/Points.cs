@@ -6,14 +6,8 @@ public class Points : MonoBehaviour
     private int points = 0;
     private float timer = 0.0f;
     private float interval = 1.0f;
-
     private void Update()
     {
-        CollisionChecker collisionChecker = FindObjectOfType<CollisionChecker>();
-        if(collisionChecker.gameOver)
-        {
-            return;
-        }
         timer += Time.deltaTime;
         if (timer >= interval)
         {
