@@ -6,8 +6,11 @@ public class GameManager : MonoBehaviour
     public Button restartButton;
     public bool gameOver;
     private CactusSpawner cactusSpawner;
+    private Points points;
+    private int pointsTemp = 0;
     private void Start()
     {
+        points = FindObjectOfType<Points>();
         cactusSpawner = FindObjectOfType<CactusSpawner>();
     }
     private void Update()
@@ -15,6 +18,12 @@ public class GameManager : MonoBehaviour
         if(gameOver)
         {
             GameOverUI(true);
+        }
+        else if(points.points > pointsTemp + 25)
+        {
+            cactusSpawner.cactusSpeed += 1.0f;
+            
+            pointsTemp = points.points;
         }
     }
     public void RestartGame()

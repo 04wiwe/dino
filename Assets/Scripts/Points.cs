@@ -3,7 +3,7 @@ using UnityEngine.UI;
 public class Points : MonoBehaviour
 {
     public Text pointsText;
-    private int points = 0;
+    public int points = 0;
     private float timer = 0.0f;
     private float interval = 1.0f;
     private GameManager gameManager;

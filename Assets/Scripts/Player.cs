@@ -1,7 +1,7 @@
 using UnityEngine;
 public class Player : MonoBehaviour
 {
-    public float jumpForce = 20.0f;
+    public float jumpForce = 25.0f;
     public  float gravity = 60.0f;
     private bool isGrounded = true;
     private Vector3 velocity = Vector3.zero;

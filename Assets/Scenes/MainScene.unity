@@ -221,7 +221,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a891f4fbead05447bf47fc9aa3478a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 20
+  jumpForce: 25
   gravity: 60
 --- !u!61 &188233764
 BoxCollider2D:
@@ -569,6 +569,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pointsText: {fileID: 671087511}
+  points: 0
 --- !u!1 &834560678
 GameObject:
   m_ObjectHideFlags: 0
