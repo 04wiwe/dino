@@ -22,7 +22,9 @@ public class Points : MonoBehaviour
         if (timer >= interval)
         {
             points++;
+            #if UNITY_EDITOR
             Debug.Log($"{points}");
+            #endif
             if (pointsText != null)
             {
                 pointsText.text = $"{points}";

@@ -3,6 +3,7 @@ public class CollisionChecker : MonoBehaviour
 {
     private Collider2D _collider;
     private GameManager gameManager;
+    Collider2D[] results = new Collider2D[32];
     public void Start()
     {
         gameManager = FindObjectOfType<GameManager>();
@@ -18,14 +19,13 @@ public class CollisionChecker : MonoBehaviour
     }
     private void CheckCollisions()
     {
-        Collider2D[] allColliders = FindObjectsOfType<Collider2D>();
-        for (int i = 0; i < allColliders.Length; i++)
+        _collider.OverlapCollider(new ContactFilter2D(), results);
+        foreach(Collider2D i in results)
         {
-            if (allColliders[i] != _collider && _collider.bounds.Intersects(allColliders[i].bounds))
+            if(i != null)
             {
                 gameManager.gameOver = true;
-                Debug.Log("Collision with " + allColliders[i].gameObject.name);
-            }
+            }            
         }
     }
 }

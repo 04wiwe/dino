@@ -731,10 +731,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bigCactusPrefab: {fileID: 7628772412409329996, guid: 5be3468983e76c0428f7cd0c57428d9b, type: 3}
   smallCactusPrefab: {fileID: 8216488249535775046, guid: 250c396c39e01ad409ad686898d8a642, type: 3}
+  ground: {fileID: 1983251760}
   spawnIntervalMin: 1
   spawnIntervalMax: 3
   cactusSpeed: 5
-  spawnHeight: -4
 --- !u!1 &1816892939
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,21 +8,23 @@ public class GameManager : MonoBehaviour
     private CactusSpawner cactusSpawner;
     private Points points;
     private int pointsTemp = 0;
+    private float cactusDefaultSpeed = 0.0f;
     private void Start()
     {
         points = FindObjectOfType<Points>();
         cactusSpawner = FindObjectOfType<CactusSpawner>();
+        cactusDefaultSpeed = cactusSpawner.cactusSpeed;
     }
     private void Update()
     {
         if(gameOver)
         {
+            cactusSpawner.cactusSpeed = cactusDefaultSpeed;
             GameOverUI(true);
         }
         else if(points.points > pointsTemp + 25)
         {
             cactusSpawner.cactusSpeed += 1.0f;
-            
             pointsTemp = points.points;
         }
     }

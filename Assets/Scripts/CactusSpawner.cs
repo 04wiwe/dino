@@ -3,10 +3,10 @@ public class CactusSpawner : MonoBehaviour
 {
     public GameObject bigCactusPrefab;
     public GameObject smallCactusPrefab;
+    public GameObject ground;
     public float spawnIntervalMin = 0.5f;
     public float spawnIntervalMax = 3.0f;
     public float cactusSpeed = 6.0f;
-    public float spawnHeight = -4.0f;
     private float nextSpawnTime;
     private GameManager gameManager;
     private void Start()
@@ -28,7 +28,7 @@ public class CactusSpawner : MonoBehaviour
     private void SpawnCactus()
     {
         GameObject cactusPrefab = Random.value > 0.5f ? bigCactusPrefab : smallCactusPrefab;
-        Vector3 spawnPosition = new Vector3(transform.position.x, spawnHeight, transform.position.z);
+        Vector3 spawnPosition = new Vector3(transform.position.x, ground.transform.localScale.y/2 + ground.transform.position.y);
         GameObject cactus = Instantiate(cactusPrefab, spawnPosition, Quaternion.identity);
         CactusMovement cactusMovement = cactus.AddComponent<CactusMovement>();
         cactusMovement.speed = cactusSpeed;
