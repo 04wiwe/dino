@@ -25,6 +25,8 @@ public class GameManager : MonoBehaviour
         else if(points.points > pointsTemp + 25)
         {
             cactusSpawner.cactusSpeed += 1.0f;
+            cactusSpawner.spawnIntervalMin -= 0.1f;
+            cactusSpawner.spawnIntervalMax -= 0.1f;
             pointsTemp = points.points;
         }
     }
@@ -36,7 +38,7 @@ public class GameManager : MonoBehaviour
     }
     public void GameOverUI(bool gameOverState)
     {
-        gameOverText.gameObject.SetActive(gameOverState);  
+        gameOverText.gameObject.SetActive(gameOverState);
         restartButton.gameObject.SetActive(gameOverState);
     }
 }

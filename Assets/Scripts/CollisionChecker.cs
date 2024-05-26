@@ -15,17 +15,21 @@ public class CollisionChecker : MonoBehaviour
         {
             return;
         }
-        CheckCollisions();
+        else
+        {
+            CheckCollisions();
+        }
     }
     private void CheckCollisions()
     {
         _collider.OverlapCollider(new ContactFilter2D(), results);
-        foreach(Collider2D i in results)
+        for(int i = 0; i < results.Length; i++)
         {
-            if(i != null)
+            if(results[i] != null)
             {
+                results[i] = null;
                 gameManager.gameOver = true;
-            }            
+            }
         }
     }
 }
